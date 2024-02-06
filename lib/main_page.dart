@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cleaning_service_app/color_schema.dart';
 import 'package:flutter/material.dart';
 
@@ -157,6 +155,57 @@ class _MainPageState extends State<MainPage> {
                             : Container(),
                       )
                     ],
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Pilih Langganan',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  onTap: () {
+                    changeFrequency("weekly");
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 110,
+                    decoration: selectedFrequency == "weekly"
+                        ? BoxDecoration(
+                            color: pink400,
+                            borderRadius: BorderRadius.circular(10),
+                          )
+                        : BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black.withOpacity(0.3),
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                    child: Center(
+                      child: Text(
+                        "Mingguan",
+                        style: TextStyle(
+                            color: selectedFrequency == "weekly"
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
                   ),
                 )
               ],
