@@ -1,4 +1,5 @@
 import 'package:cleaning_service_app/color_schema.dart';
+import 'package:cleaning_service_app/main_page.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -43,7 +44,7 @@ class SplashScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/image/splash.png"),
+                image: AssetImage('assets/image/splash.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,18 +52,27 @@ class SplashScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 60, vertical: 30),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20)),
-                  color: Colors.white,
+              InkWell(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const MainPage();
+                    },
+                  ),
                 ),
-                child: Text(
-                  'Lanjutkan',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: deepPurple400,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 30),
+                  decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.only(topLeft: Radius.circular(20)),
+                      color: Colors.white),
+                  child: Text(
+                    'Lanjutkan',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                      color: deepPurple400,
+                    ),
                   ),
                 ),
               ),
