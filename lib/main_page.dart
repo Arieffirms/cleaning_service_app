@@ -160,20 +160,22 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 30,
             ),
-            Text(
-              'Pilih Langganan',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+            Center(
+              child: Text(
+                'Pilih Langganan',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
                   onTap: () {
@@ -207,8 +209,77 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
-                )
+                ),
+                InkWell(
+                  onTap: () {
+                    changeFrequency("biweekly");
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 110,
+                    decoration: selectedFrequency == "biweekly"
+                        ? BoxDecoration(
+                            color: pink400,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          )
+                        : BoxDecoration(
+                            border: Border.all(
+                                color: Colors.black.withOpacity(0.3)),
+                            borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                      child: Text(
+                        "2 Mingguan",
+                        style: TextStyle(
+                            color: selectedFrequency == "biweekly"
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    changeFrequency("Bulan");
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 110,
+                    decoration: selectedFrequency == "Bulan"
+                        ? BoxDecoration(
+                            color: pink400,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          )
+                        : BoxDecoration(
+                            border: Border.all(
+                                color: Colors.black.withOpacity(0.3)),
+                            borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                      child: Text(
+                        "Bulanan",
+                        style: TextStyle(
+                            color: selectedFrequency == "Bulan"
+                                ? Colors.white
+                                : Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ),
               ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Pilih Tambahan",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             )
           ],
         ),
