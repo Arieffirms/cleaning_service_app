@@ -9,6 +9,19 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  String selectedType = "Bersih";
+  String selectedFrequency = "monthly";
+
+  void onChangePaketType(String type) {
+    selectedType = type;
+    setState(() {});
+  }
+
+  void changeFrequency(String frequency) {
+    selectedFrequency = frequency;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +64,60 @@ class _MainPageState extends State<MainPage> {
               children: [
                 InkWell(
                   onTap: () {
-                    onChangePaketType('berhasil');
+                    onChangePaketType("Bersih");
                   },
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 140,
+                        width: MediaQuery.of(context).size.width * 0.40,
+                        decoration: BoxDecoration(
+                            color: deepPurple50,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                            image: DecorationImage(
+                                image: AssetImage('assets/image/img1.png'))),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Paket Bersih',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: deepPurple50,
+                        ),
+                        child: selectedType == 'Bersih'
+                            ? Icon(
+                                Icons.check_circle,
+                                color: Colors.pink[400],
+                                size: 30,
+                              )
+                            : Container(),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    onChangePaketType("mengkilap");
+                  },
+                  child: Column(
+                    children: [
+                      
+                    ],
+                  ),
                 )
               ],
             )
