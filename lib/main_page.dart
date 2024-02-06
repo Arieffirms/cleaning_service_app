@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cleaning_service_app/color_schema.dart';
 import 'package:flutter/material.dart';
 
@@ -29,9 +31,12 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
-          "Paket Langganan",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+        title: Container(
+          margin: EdgeInsets.only(left: 50),
+          child: Text(
+            "Paket Langganan",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+          ),
         ),
       ),
       body: Container(
@@ -115,7 +120,42 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: Column(
                     children: [
-                      
+                      Container(
+                        height: 140,
+                        width: MediaQuery.of(context).size.width * 0.40,
+                        decoration: BoxDecoration(
+                          color: deepPurple50,
+                          image: DecorationImage(
+                            image: AssetImage('assets/image/img2.png'),
+                          ),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Paket Mengkilap',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: deepPurple50,
+                        ),
+                        child: selectedType == "mengkilap"
+                            ? Icon(Icons.check_circle, size: 30, color: pink400)
+                            : Container(),
+                      )
                     ],
                   ),
                 )
