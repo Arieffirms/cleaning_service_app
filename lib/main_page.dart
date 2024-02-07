@@ -279,11 +279,90 @@ class _MainPageState extends State<MainPage> {
             ),
             Text(
               "Pilih Tambahan",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                extraWidget("es", 'kulkas', false),
+                extraWidget("belanja", 'makanan', true),
+                extraWidget("teras", 'teras', false),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                extraWidget("tirai", 'Dapur', true),
+                extraWidget("teras", 'santai', false),
+                extraWidget("es", 'ruang tamu', true),
+              ],
             )
           ],
         ),
       ),
+    );
+  }
+
+  Column extraWidget(String foto, String name, bool isSelected) {
+    return Column(
+      children: [
+        Stack(
+          children: [
+            Container(
+              height: 70,
+              width: 70,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: deepPurple400,
+              ),
+              child: Container(
+                margin: EdgeInsets.all(17),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/image/icons/$foto.png'),
+                      fit: BoxFit.contain),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              right: 0,
+              child: isSelected == true
+                  ? Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: Colors.white),
+                      child: Center(
+                        child: Icon(
+                          Icons.check_circle,
+                          color: pink400,
+                        ),
+                      ),
+                    )
+                  : Container(),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          name,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
+        )
+      ],
     );
   }
 }
